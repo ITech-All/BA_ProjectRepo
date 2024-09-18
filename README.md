@@ -36,4 +36,6 @@ Students may be unaware of direct competitors in the market, which could make th
 Poor Communication:
 Students may struggle with communicating their vision clearly to investors, leading to misunderstandings or failure to secure funding.
 
+3.2 Investors offers much more than just money. They bring expertise credibility, and valuable connections that can significantly address and mitigate financial challenges students face in entrepreneurship .This comprehensive support increases the likelihood of business success and helps students navigate the complexities of starting and growing a business
+
 
