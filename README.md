@@ -9,4 +9,4 @@ The main objective of this AI solution is to automatically match students' proje
 • The industry the project targets
 • The potential market impact
 • Investor preferences (such as industries of interest and investment amounts)
-• Historical data of successful projects in similar industries
+• Historical data of successful projects in similar industries 
