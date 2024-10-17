@@ -20,6 +20,19 @@ The main objective of this AI solution is to automatically match students' proje
 • Investor preferences (such as industries of interest and investment amounts)
 • Historical data of successful projects in similar industries
 
+4. **Key Features of the AI Solution**
+a) **Project Analysis**
+The platform will use Natural Language Processing (NLP) to analyze the project proposals submitted by students. This AI-powered analysis will break down key aspects of the project, such as the industry, target audience, and project goals.
+b) **Investor Matching**
+Using machine learning algorithms, the system will compare the analyzed project data with investor profiles. The algorithm will factor in:
+•	Industry focus
+•	Previous investments by the investor
+•	Risk tolerance levels This will ensure that students are connected to investors most likely to be interested in their projects.
+c) **Recommendation System**
+An AI-based recommendation engine will suggest relevant investors to students and send project pitches to selected investors. This approach will automate the traditionally manual process of seeking investment.
+d) **Predictive Success Rating**
+Using historical data from previous successful investments, the AI will also assign a success rating to student projects, giving investors an idea of the potential for growth and return on investment.
+
 5. **Implementation Strategy**
 **Step 1: Data Collection**
 Collect data from students (project submissions) and investors (investment profiles). The data will include:
@@ -36,9 +49,9 @@ Develop the matching algorithm, which will compare the analyzed project data wit
 Test the AI platform to ensure that matches are relevant and refine the algorithm using feedback from both students and investors.
 
 6. **Tools and Technologies**
-• Programming Language: Python
-• Frameworks: Flask or Django for backend development, Scikit-learn or TensorFlow for machine learning.
-• NLP Libraries: Spacey or NLTK for processing project proposals.
-• Database: Use SQL or NoSQL for storing data on projects and investors.
-• Cloud Platforms: AWS or Google Cloud for scalable hosting.
+• **Programming Language**: Python
+• **Frameworks**: Flask or Django for backend development, Scikit-learn or TensorFlow for machine learning.
+• **NLP Libraries**: Spacey or NLTK for processing project proposals.
+• **Database**: Use SQL or NoSQL for storing data on projects and investors.
+• **Cloud Platforms**: AWS or Google Cloud for scalable hosting.
 
