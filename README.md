@@ -35,3 +35,10 @@ Develop the matching algorithm, which will compare the analyzed project data wit
 **Step 5: System Integration and Testing**
 Test the AI platform to ensure that matches are relevant and refine the algorithm using feedback from both students and investors.
 
+6. **Tools and Technologies**
+• Programming Language: Python
+• Frameworks: Flask or Django for backend development, Scikit-learn or TensorFlow for machine learning.
+• NLP Libraries: Spacey or NLTK for processing project proposals.
+• Database: Use SQL or NoSQL for storing data on projects and investors.
+• Cloud Platforms: AWS or Google Cloud for scalable hosting.
+
