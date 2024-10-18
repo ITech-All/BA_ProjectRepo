@@ -60,5 +60,6 @@ Test the AI platform to ensure that matches are relevant and refine the algorith
 • Improved Investment Decisions: Investors get a success rating for each project, helping them make better-informed decisions.
 • Promotion of Innovation: Students gain access to funding for innovative ideas, helping bring more creative solutions to life.
 
-
+8. **Conclusion**
+This AI solution aims to bridge the gap between students with promising ideas and investors looking for innovative projects. By automating the matching process and providing valuable insights, the platform will encourage investment in student projects and contribute to fostering innovation.
 
