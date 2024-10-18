@@ -1,11 +1,11 @@
-# BA_ProjectRepo
+# Business_Analysis_AI_Project
 
 **Industry:** Education Industry
 **Theme:** An AI Solution for Industries
-**Project Title:** EduPreneur: AI-Driven Platform Connecting Student Entrepreneurs with Investors in South Africa
+**Project Title:_** AI StudentCapital**_: AI-Driven Platform empowering student** innovative or inventive ** ideas by matching with potential investors
 
 1. **Project Overview**
-The AI platform is designed to connect students with innovative project ideas to investors. This system leverages AI to analyze the project details submitted by students and matches them with suitable investors based on project relevance, industry, and investor interests. The platform aims to streamline the process of finding investors for student-led innovations, encouraging investment in new, creative ideas.
+The AI platform is designed to connect students with ** innovative or inventive ** project ideas to investors. This system leverages AI to analyze the project details submitted by students and matches them with suitable investors based on project relevance, industry, and investor interests. The platform aims to streamline the process of finding investors for student-led innovations, encouraging investment in new, creative ideas.
 
 
 2. **Problem Definition**
