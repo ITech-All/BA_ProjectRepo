@@ -53,42 +53,59 @@ def show_results():
 
     return render_template('results.html', name=name, project_title=project_title, matched_investors=matched_investors)
 
+# our chatbot 
 def handle_chatbot_response(user_input):
     """A simple function to handle chatbot responses based on user input."""
     user_input = user_input.lower()
 
-    if 'hello' in user_input or 'hi' in user_input:
-        return "Hello! How can I assist you today?"
-    elif 'investors' in user_input:
-        return "We have a range of investors interested in various industries. What industry are you interested in?"
+    if 'hello' in user_input.lower() or 'hi' in user_input.lower():
+        return ("Hello! How can I assist you today? Choose the option below \n"
+                "1. investors"
+        )
+    elif 'investors' in user_input.lower() or '1' in user_input:
+        return ("We have a range of investors interested in various industries. What industry are you interested in?\n "
+                "1 education\n"
+                "2 technology\n"
+                "3 healthcare\n"
+                "4 finance\n"
+                "5 agriculture\n"
+                "6 real estate\n"
+                "7 manufacturing\n"
+                "8 tourism\n"
+                "9 retail\n"
+                "10 energy\n"
+                "11 transportation\n"
+                "12 help\n"
+                "13 Exit"
+        )
     elif 'project' in user_input:
         return "Please tell me about your project, and I'll help you find the right investors."
-    elif 'help' in user_input:
+    elif 'help' in user_input.lower() or '12' in user_input:
         return "You can ask me about investors, project submissions, or any other queries you have."
-    elif 'education' in user_input:
+    elif 'education' in user_input.lower() or '1' in user_input:
         return "We have several investors interested in education. Are you looking for funding for a specific project in this sector?"
-    elif 'technology' in user_input:
+    elif 'technology' in user_input.lower() or '2' in user_input:
         return "Technology is a popular sector! We can connect you with investors who focus on innovative tech projects."
-    elif 'healthcare' in user_input:
+    elif 'healthcare' in user_input.lower() or '3' in user_input:
         return "Healthcare is crucial! We have investors keen on supporting new ideas in this field. What’s your project about?"
-    elif 'finance' in user_input:
+    elif 'finance' in user_input.lower() or '4' in user_input:
         return "Finance is always looking for innovative solutions. Can you share more about your project idea?"
-    elif 'agriculture' in user_input:
+    elif 'agriculture' in user_input.lower() or '5' in user_input:
         return "Agriculture investments are on the rise! What unique ideas do you have in this sector?"
-    elif 'real estate' in user_input:
+    elif 'real estate' in user_input.lower() or '6' in user_input:
         return "Real estate has great potential! Are you working on a residential or commercial project?"
-    elif 'transportation' in user_input:
+    elif 'transportation' in user_input.lower() or '11' in user_input:
         return "Transportation innovations are exciting! What aspect of transportation does your project focus on?"
-    elif 'energy' in user_input:
+    elif 'energy' in user_input.lower() or '8' in user_input:
         return "Energy projects are essential for sustainability. What type of energy solution are you proposing?"
-    elif 'manufacturing' in user_input:
+    elif 'manufacturing' in user_input.lower() or '7' in user_input:
         return "Manufacturing is a key area for growth. What improvements or innovations are you working on?"
-    elif 'retail' in user_input:
+    elif 'retail' in user_input.lower() or '9' in user_input:
         return "Retail is evolving rapidly. How does your project aim to innovate in this space?"
-    elif 'tourism' in user_input:
+    elif 'tourism' in user_input.lower() or '8' in user_input:
         return "Tourism is an exciting sector! What unique experience does your project offer?"
-    elif 'thank you' in user_input or 'thanks' in user_input:
-        return "You're welcome! If you have more questions, feel free to ask."
+    elif 'exit' in user_input.lower() or '13' in user_input.lower():
+        return "You have exited goodbye!"
     else:
         return "I'm sorry, I didn't understand that. Could you please rephrase?"
 
