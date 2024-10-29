@@ -1,0 +1,6 @@
+name,industry_interest,investment_amount,risk_tolerance,previous_investments
+Investor A,Technology,100000,High,3
+Investor B,Education,50000,Medium,2
+Investor C,Energy,200000,Low,5
+Investor D,Healthcare,150000,High,4
+Investor E,Finance,120000,Medium,1
