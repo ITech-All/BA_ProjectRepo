@@ -64,3 +64,71 @@ Test the AI platform to ensure that matches are relevant and refine the algorith
 8. **Conclusion**
 This AI solution aims to bridge the gap between students with promising ideas and investors looking for innovative projects. By automating the matching process and providing valuable insights, the platform will encourage investment in student projects and contribute to fostering innovation.
 
+
+
+# AIMatching.py
+import pandas as pd
+import spacy
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier
+
+# Load NLP model
+nlp = spacy.load("en_core_web_sm")
+
+# Load data (replace with actual file paths)
+projects = pd.read_csv("students.csv")
+investors = pd.read_csv("investors.csv")
+
+# Function for text preprocessing
+def preprocess_text(text):
+    doc = nlp(text)
+    return " ".join([token.lemma_ for token in doc if not token.is_stop])
+
+# Apply preprocessing to project descriptions
+projects['processed_description'] = projects['project_description'].apply(preprocess_text)
+
+# Feature extraction using TF-IDF
+vectorizer = TfidfVectorizer(max_features=1000)
+project_features = vectorizer.fit_transform(projects['processed_description']).toarray()
+
+# Encode industry type
+projects['industry_encoded'] = LabelEncoder().fit_transform(projects['industry_type'])
+
+# Prepare features and labels for model
+X = pd.concat([pd.DataFrame(project_features), projects[['industry_encoded']]], axis=1)
+y = projects['matched_investor']  # Target label: matched investor
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Train K-Nearest Neighbors model for matching
+model = KNeighborsClassifier(n_neighbors=5)
+model.fit(X_train, y_train)
+
+# Evaluate model accuracy
+y_pred = model.predict(X_test)
+print(f"Matching Model Accuracy: {accuracy_score(y_test, y_pred)}")
+
+# Function to recommend investors based on a new project
+def recommend_investors(new_project):
+    processed_desc = preprocess_text(new_project['description'])
+    project_vec = vectorizer.transform([processed_desc]).toarray()
+    industry_encoded = LabelEncoder().fit_transform([new_project['industry']])[0]
+
+    # Combine features
+    new_project_features = pd.concat([pd.DataFrame(project_vec), pd.DataFrame([industry_encoded])], axis=1)
+    recommendations = model.kneighbors(new_project_features, n_neighbors=3)
+    return recommendations  # Top 3 investor recommendations
+
+# Train a decision tree model for success prediction
+success_model = DecisionTreeClassifier()
+success_model.fit(X_train, y_train)
+
+# Function to predict project success rating
+def predict_success(new_project_features):
+    return success_model.predict(new_project_features)
+
