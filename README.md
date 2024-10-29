@@ -66,7 +66,7 @@ This AI solution aims to bridge the gap between students with promising ideas an
 
 
 
-# AIMatching.py
+# AIMatching AIStudentCapital
 import pandas as pd
 import spacy
 from sklearn.neighbors import KNeighborsClassifier
@@ -75,6 +75,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics.pairwise import cosine_similarity
+import random
 
 # Load NLP model
 nlp = spacy.load("en_core_web_sm")
@@ -131,4 +133,58 @@ success_model.fit(X_train, y_train)
 # Function to predict project success rating
 def predict_success(new_project_features):
     return success_model.predict(new_project_features)
+
+# --- Chatbot Implementation ---
+
+# Sample responses for common questions
+response_bank = {
+    "greeting": ["Hello! How can I help you today?", "Hi there! What can I do for you?"],
+    "recommendation": ["Sure, I can recommend some investors based on your project details."],
+    "project_success": ["I can also predict the potential success of your project."],
+    "unknown": ["I'm not sure I understand. Could you rephrase?"]
+}
+
+# Store user queries and responses for learning
+chat_history = []
+
+# Basic query handling for the chatbot
+def chatbot_response(user_input):
+    # Preprocess user input
+    processed_input = preprocess_text(user_input.lower())
+    
+    # Determine type of query based on keywords
+    if "recommend" in processed_input or "investor" in processed_input:
+        response = random.choice(response_bank["recommendation"])
+        response += " Please provide your project description and industry."
+    elif "success" in processed_input or "predict" in processed_input:
+        response = random.choice(response_bank["project_success"])
+        response += " Provide your project features, and I'll analyze them."
+    elif "hello" in processed_input or "hi" in processed_input:
+        response = random.choice(response_bank["greeting"])
+    else:
+        response = random.choice(response_bank["unknown"])
+    
+    # Add to chat history for learning
+    chat_history.append({"user": user_input, "response": response})
+    
+    return response
+
+# Learning mechanism - adapting responses based on frequent queries
+def adapt_responses():
+    keywords = ["recommend", "investor", "success", "predict"]
+    for keyword in keywords:
+        relevant_history = [entry for entry in chat_history if keyword in entry["user"].lower()]
+        if relevant_history:
+            common_response = max(set([entry["response"] for entry in relevant_history]), key=[entry["response"] for entry in relevant_history].count)
+            response_bank[keyword] = [common_response]
+
+# Example interaction
+user_query = "Can you recommend investors for my tech project?"
+print("User:", user_query)
+print("Chatbot:", chatbot_response(user_query))
+
+# Run adaptation after enough interactions
+if len(chat_history) > 10:  # Example threshold for adaptation
+    adapt_responses()
+
 
