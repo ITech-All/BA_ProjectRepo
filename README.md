@@ -79,7 +79,7 @@ from sklearn.tree import DecisionTreeClassifier
 # Load NLP model
 nlp = spacy.load("en_core_web_sm")
 
-# Load data (replace with actual file paths)
+# Load data 
 projects = pd.read_csv("students.csv")
 investors = pd.read_csv("investors.csv")
 
