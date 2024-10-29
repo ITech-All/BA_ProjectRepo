@@ -57,17 +57,12 @@ def handle_chatbot_response(user_input):
     """A simple function to handle chatbot responses based on user input."""
     user_input = user_input.lower()
 
-    if 'hello' in user_input or 'hellow' in user_input or 'hey' in user_input or 'hi' in user_input:
-        return  ("Hello! How can I assist you today? \n " 
-                 "1. With Investors \n "
-                 "2. Industry of Interest")
-    
-    elif 'investors' in user_input or '1' in user_input:
+    if 'hello' in user_input or 'hi' in user_input:
+        return "Hello! How can I assist you today?"
+    elif 'investors' in user_input:
         return "We have a range of investors interested in various industries. What industry are you interested in?"
-    
     elif 'project' in user_input:
         return "Please tell me about your project, and I'll help you find the right investors."
-    
     elif 'help' in user_input:
         return "You can ask me about investors, project submissions, or any other queries you have."
     elif 'education' in user_input:
